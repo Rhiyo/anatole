@@ -16,15 +16,11 @@ Anatole's aims to be minimalistic and sleek, but still brings some great functio
 - Navigation items
 - Pagination
 - Multilingual
-- Post Thumbnails (optional)
 - 100⁄100 Google Lighthouse score
 - Google Analytics (optional)
-- Comments powered by Disqus, Commento or Utteranc.es (optional)
-- SimpleAnalytics (optional)
+- Comments powered by Disqus (optional)
 - Katex support (optional)
-- Formspree Contact Form (optional)
 - Twitter Cards support
-- Open Graph support
 - MIT License
 - Fontawesome 5.15.1 icons
 - Custom CSS (optional)
@@ -70,25 +66,9 @@ description = "Call me Jane"
 profilePicture = "images/profile.jpg"
 ```
 
-Please note that the slogan can be multi-lined (note the three quotes at the beginning and end):
-```toml
-[params]
-description = """
-Call me Jane
-Blogging from Texas
-"""
-```
-
-
 ### Favicon
 
-Add your own favicon in `static/favicons/favicon.ico`.
-
-### Copyright
-By default, the copyright will show the current year, but you can change this by configuring the `copyright` parameter.
-```toml
-copyright = "2020-2021"
-```
+Add you own favicon in `static/favicons/favicon.ico`.
 
 ### Navigation items
 
@@ -118,20 +98,13 @@ Non-content entries can be added right from the `config.toml` file.
 
 ### Prefer dark theme
 
-You can easily enable the dark mode from the `config.toml` all you have to do is to set the parameter `displayMode` to `dark`. If you don't specify any displayMode, then the light version will be loaded.
+You can easily enable the dark mode from the `config.toml` all you have to do is to set the parameter `displayMode` to `dark`. If you dont specify any displayMode, then the light version will be loaded.
 
-Please also note that returning visitors will see the theme that was last displayed to them on your site. If your user has his system configured to dark mode, then this will also take precedence over the `displayMode` set in the `config.toml`.
+Please also note that returning visitors will see the theme that was last displayed to them on your site. If your user has his system configured to dark mode, then this will also take presendence over the displayMode set in the `config.toml`.
 
 ```toml
 [params]
 displayMode = "dark"
-```
-
-### Disable Theme Switcher
-You can easily disable the theme switcher from the `config.toml`. All you have to do is to set the parameter `disableThemeSwitcher` to `true`.
-```toml
-[params]
-disableThemeSwitcher = true # Theme switcher is enabled by default
 ```
 
 ### Disable Animations
@@ -141,40 +114,9 @@ You can easily disable the animations from the `config.toml`. All you have to do
 doNotLoadAnimations = true # Animations are loaded by default
 ```
 
-### Control the date Format
-You can change the default date formating for the `list.html`, the `single.html` and the `index.html`. Simply configure the matching parameters.
-```toml
-[params]
-singleDateFormat = "Mon, Jan 2, 2006"
-indexDateFormat = "Mon, Jan 2, 2006"
-listDateFormat = "Jan 2"
-```
-
-### Read-more Links
-You can enable read-more links for truncated posts by setting the `readMore = true`. The length of the preview is controlled by Hugo's `summarylength`. Read-more links are disabled by default.
-```toml
-[params]
-  readMore = true
-```
-
-### Have a static page as a home page
-If you prefer having a static page as your home page rather than a listing of the latest posts, then make sure you leave the `mainSections` parameter blank:
-```toml
-[params]
-  mainSections = []
-```
-Put any content into the `_index.md` file located in the content directory. If you want, you can also have some static text and the posts below. In such case, simply keep the `mainSections = ["post"]` and put any static content in the `_index.md`.
-
-### Show full post content on the home page
-If you prefer the full content of your posts to appear on the home page rather than a summary of each post, then set the parameter `fullPostContent` to `true`.
-```toml
-[params]
-fullPostContent = true
-```
-
 ### Multilingual support
 
-Anatole supports multilingual page setups. All you need to do is to add the languages to your 'config.toml'. For each language you can set the custom options like title or description. It's important to include a `LanguageName`, as it will be displayed in the main menu.
+Anatole supports multilingual page setups. All you need to do is to add the languages to your 'config.toml'. For each Language you can set the custom options like title or description. It's important to include a `LanguageName`, as it will be displayed in the main menu.
 
 ```toml
 [Languages]
@@ -200,7 +142,7 @@ There are two ways of translating your content either by adding a suffix in the 
     weight = 1
 ```
 
-To make sure your menu is linking to the correct localized content, make sure that you customize the menu items to include the language prefix. Your menu might look like the following:
+To make sure your menu is linking to the correct localized content, make sure that you customize the menu items to inlude the language prefix. Your menu might look like the following:
 
 ```toml
 [[Languages.de.menu.main]]
@@ -231,40 +173,11 @@ The theme is optimized to adhere to the requirements checked for in the Lighthou
 
 ### Comments powered by Disqus
 
-No comment section is shown on the `single.html`, unless a Disqus code is specified in the `config.toml` file.
+No comment section is shown on the `single.html`, unless a disqus code is specified in the `config.toml` file.
 
 ```toml
 disqusShortname = "XXX"
 ```
-
-### Comments powered by Utteranc.es
-
-No comment section is shown on the `single.html` unless a `repo` is specified in the `config.toml` file. If uncertain how parameter to configure, check out the official [documentation}(https://utteranc.es/).
-
-```toml
-[params.utterances]
-repo = "githubuser/reponame"
-issueTerm = "pathname"
-theme= "preferred-color-scheme"
-# label = 
-```
-
-Two notes on the security of Utteranc.es
-- If you are using a strict CSP, you'll have to add the domain to it. 
-- The script currently has no built-in integrity check, due to limitations of [Utterances](https://github.com/utterance/utterances/issues/40).
-
-### Comments powered by Commento
-You can use [Commento](https://commento.io/) as an alternative to Disqus. All you need to do is to configure a `CommentoURL`:
-
-```toml
-[params]
-CommentoURL = "https://commento.example.com/js/commento.js"
-```
-
-### Disabling Comments Per Page
-
-Comments can be disabled per page by setting `disableComments: true` on the pages [Front Matter](https://gohugo.io/content-management/front-matter/)
-
 
 ### Google Analytics
 
@@ -274,29 +187,11 @@ To use Google Analytics, a valid tracking code has to be added. If you don't wan
 googleAnalytics = "UA-123-45"
 ```
 
-To use the modern Google Analytics 4, include the following under `[params]` replacing the id with your own.
-
-```toml
-[params]
-gtagId = "G-XXXXXXXXXX"
-```
-
-### Simple Analytics
-
-To use Simple Analytics, it has to be enabled by setting the parameter to true. If you are using a custom subdomain to evade Adblockers, then specify the URL without a trailing slash.
-
-```toml
-[params.simpleAnalytics]
-enable = true
-# customurl = "https://analytics.example.com"
-```
-
 ### Google Site Verification
 
 To use Google Site Verification, add the following line to the `[params]`:
 
 ```toml
-[params]
 googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 ```
 
@@ -310,13 +205,7 @@ Replace the hash with the one Google provided you.
 enable = false  # options: true, false. Enable math support globally, default: false. You can always enable math on per page.
 use = "katex"  # options: "katex", "mathjax". default is "katex".
 ```
-### Formspree Contact Form on the Contact page
-Step 1: Configure the `contactFormAction` in the `config.toml`
-```toml
-[params]
-#contactFormAction = "https://formspree.io/f/your-form-hash-here"
-```
-Step 2: Activate the `contact: true` or  `contact=true` in the frontmatter of a page. See `exampleSite/content/contact.html` as an example.
+
 ### Twitter Cards support
 
 In order to use the full functionality of Twitter cards, you will have to define a couple of settings in the `config.toml` and the frontmatter of a page.
@@ -333,22 +222,6 @@ To define a custom image of a page, you might want to add the following to the f
 ```toml
 images = ["post-cover.png"]
 ```
-### Open Graph Support
-
-The [internal template for Open Graph protocol](https://gohugo.io/templates/internal/#open-graph) uses a mix of configuration variables; settings in `config.toml` and frontmatter of the page. In a nutshell, you will have to configure a taxonomies series.
-
-### Post Thumbnails
-Thumbnails can be enabled easily by setting the `thumbnail` parameter in the frontmatter of a post to an image such as `"images/landscape.jpg"`.
-```md
-+++
-...
-tags = [
-    "thumbnail",
-]
-thumbnail= "images/landscape.jpg"
-+++
-```
-Make sure to put the image in the `static/images/` directory.
 
 ### Custom CSS
 
@@ -403,15 +276,6 @@ Both approaches can even be mixed:
 customJs = ["https://cdn.exmple.org/fancyscript.js", "js/world.js"]
 ```
 
-### Medium Like Zoom
-
-Enabled by default, the medium like zoom for images can be disabled by adding the following config under `[params]`.
-
-```toml
-[params]
-enableMediumZoom = false
-```
-
 ### Content Security Policy
 
 The theme is compliant with most strict CSP policies out of the box. A sample CSP for an Anatole-based site would look something like this:
@@ -460,11 +324,11 @@ If you want Hugo to generate a robots.txt, you will have to set the `enableRobot
 User-agent: *
 ```
 
-If certain sites should be excluded from being accessed, you might want to setup a custom robots.txt file within your `static` folder of your site.
+If certain sites shoud be excluded from being accessed, you might want to setup a custom robots.txt file within your `static` folder of your site.
 
 ### Syntax highlighting
 
-This theme has support for either Hugo's lightning-fast Chroma code highlighting. See the [Hugo docs](https://gohugo.io/content-management/syntax-highlighting/) for more information.
+This theme has support for either Hugo's lightning fast Chroma code highlighting. See the [Hugo docs](https://gohugo.io/content-management/syntax-highlighting/) for more information.
 
 To enable Chroma, add the following to your site parameters:
 
@@ -480,7 +344,7 @@ hugo gen chromastyles --style=monokailight > assets/css/syntax.css
 ```
 
 If you get any errors, make sure the `assets/css/` directory exists within your sites root folder.
-Include the newly generated `syntax.css` like a standard custom CSS script:
+Include the newly generated `syntax.css` like a standard custom css script:
 
 ```toml
 [params]
@@ -493,17 +357,9 @@ Anatole is licensed under the [MIT license](https://github.com/lxndrblz/anatole/
 
 ## Maintenance
 
-This theme is maintained by its author [Alexander Bilz](https://github.com/lxndrblz) and with the help from these awesome [contributors](https://github.com/lxndrblz/anatole/graphs/contributors). Please open an issue/pull request if you want to contribute to making this theme better and more feature-complete. For PRs please make sure that they align with theme's goals: minimalism, speed and elegance.  
-
-## Sponsoring
-
-If you like this theme, give it a star on GitHub, and consider supporting its development:
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/lxndrblz/)
-
+This theme is maintained by its author [Alexander Bilz](https://github.com/lxndrblz). Please open an issue/pull request if you want to contribute in making this theme better and more feature-complete.
 
 ## Special Thanks 🎁
 
 - Go to [Cai Cai](https://github.com/hi-caicai), for the great Anatole Farbox theme that formed the foundation for this theme.
 - Go to [Kareya Saleh](https://unsplash.com/photos/tLKOj6cNwe0) for providing the profile picture in the exampleSite.
-- Go to [Ales Krivec](https://unsplash.com/photos/4miBe6zg5r0) for providing the thumbnail picture in the exampleSite post.

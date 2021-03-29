@@ -19,9 +19,3 @@ other = "Vous pouvez revenir à <a href=\"{{ . }}\">l'accueil</a>."
 
 [comments]
 other = "commentaire"
-
-[send]
-other = "Envoyer"
-
-[read_more]
-other = "continuer la lecture"

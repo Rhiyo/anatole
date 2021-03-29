@@ -13,42 +13,20 @@ enableRobotsTXT = true
 # Google Analytics
 #googleAnalytics = "UA-123-45"
 
-# Syntax highlighting
-pygmentsUseClasses = true
-pygmentsCodeFences = true
-pygmentsCodefencesGuessSyntax = true
-
 [params]
 title = "I'm Jane Doe"
 author = "Jane Doe"
-#copyright = "2020-2021"
 description = "Call me Jane"
 profilePicture = "images/profile.jpg"
 keywords = ""
 favicon = "favicons/"
-# example ["css/custom.css"]
 customCss = []
-# example ["js/custom.js"]
-customJs = [] 
+customJs = []
 mainSections = ["post"]
 images = ["images/site-feature-image.png"]
 doNotLoadAnimations = false
-# Form Spree Contact Form
-#contactFormAction = "https://formspree.io/f/your-form-hash-here"
-# Google Site Verify
+# Google Site Verification
 #googleSiteVerify = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-# indexDateFormat = "Mon, Jan 2, 2006"
-# listDateFormat = "Jan 2"
-# singleDateFormat = "Mon, Jan 2, 2006"
-# Commento Comments
-# CommentoURL = "https://commento.example.com/js/commento.js"
-# Read More links for truncated summaries
-# readMore = true
-
-
-[params.simpleAnalytics]
-# enable = true
-# customurl = "https://analytics.example.com"
 
 ## Math settings
 [params.math]
@@ -75,7 +53,7 @@ url = "https://www.instagram.com/"
 [[params.socialIcons]]
 icon = "fas fa-envelope"
 title = "e-mail"
-url = "mailto:mail@example.com"
+url = "mailto:mail@alexbilz.com"
 
 ## Menu items
 
@@ -98,9 +76,3 @@ url = "mailto:mail@example.com"
   weight = 300
   identifier = "about"
   url = "/about/"
-
-  [[menu.main]]
-  name = "Contact"
-  weight = 400
-  identifier = "contact"
-  url = "/contact/"

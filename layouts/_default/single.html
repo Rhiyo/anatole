@@ -1,30 +1,32 @@
 {{ define "main" }}
     <div class="post {{ with .Site.Params.doNotLoadAnimations }} . {{ else }} animated fadeInDown {{ end }}">
         <div class="post-content">
-            {{ if .Params.thumbnail }}
-            <img class="post-thumbnail" src="{{ .Params.thumbnail | absURL }}" alt="Thumbnail image">
-            {{ end }}
             <div class="post-title">
+                {{ $img_name := split .File.LogicalName "." }}
+                {{ $img_name := index $img_name 0 }}
+                {{ $img_loc := print "/image/post/preview/" $img_name ".png" }}
+                {{ if $img_loc | fileExists }}
+                <img src="{{ $img_loc }}" width="320" height="240" style="float: right; padding: 15px;" />
+                {{ end }}
                 <h3>{{ .Title }}</h3>
                 {{ if eq .Type "post"}}
                     <div class="info">
                         <em class="fas fa-calendar-day"></em>
-                        <span class="date">{{ if isset .Site.Params "singledateformat" }} 
-                                                {{ .Date.Format .Site.Params.singleDateFormat }}
-                                           {{ else }} {{.Date.Format "Mon, Jan 2, 2006"}} 
-                                           {{ end }}</span>
+                        <span class="date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
                         <em class="fas fa-stopwatch"></em>
                         <span class="reading-time">{{ i18n "reading_time" .ReadingTime }}</span>
                     </div>
                 {{ end }}
             </div>
-
+            {{ $summary_splits := split .Content "thisisthestartofsummary" }}
+            {{ if eq (len $summary_splits) 2 }}
+            <!-- If that endtoc special comment is present, output only the part after that comment as Summary. -->
+            {{ index $summary_splits 0 | safeHTML }}
+            {{ index $summary_splits 1 | safeHTML}}
+            {{ else }}
+            <!-- Print the whole Summary if endtoc special comment is not found. -->
             {{ .Content }}
-
-            {{- if (eq .Params.contact true) -}}
-              {{- partial "contact.html" . -}}
-            {{- end -}}
-
+            {{ end }}
         </div>
         <div class="post-footer">
             <div class="info">
@@ -33,25 +35,13 @@
             </div>
         </div>
 
-        {{ if and (eq .Type "post") (ne .Page.Params.disableComments true) }}
-            {{- if .Site.DisqusShortname -}}
+        {{ if eq .Type "post"}}
+            {{ if .Site.DisqusShortname -}}
                 <div id="fb_comments_container">
                     <h2>{{ i18n "comments" }}</h2>
                     {{ template "_internal/disqus.html" . }}
                 </div>
-            {{- end -}}
-            {{- if .Site.Params.utterances.repo -}}
-            <div id="fb_comments_container">
-                <h2>{{ i18n "comments" }}</h2>
-                {{ partial "comments/utterances.html" . }}
-            </div>
-            {{- end -}}
-            {{- if .Site.Params.CommentoURL -}}
-            <div id="fb_comments_container">
-                <h2>{{ i18n "comments" }}</h2>
-                {{ partial "comments/commento.html" . }}
-            </div>
-            {{- end -}}
+            {{- end }}
         {{ end }}
     </div>
 

@@ -19,9 +19,3 @@ other = "شما می‌توانید برگردید به <a href=\"{{ . }}\">صف
 
 [comments]
 other = "نظرات"
-
-[send]
-other = "ارسال"
-
-[read_more]
-other = "ادامه خواندن"

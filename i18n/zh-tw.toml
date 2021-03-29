@@ -19,9 +19,3 @@ other = "返回 <a href=\"{{ . }}\">首頁</a>."
 
 [comments]
 other = "註解"
-
-[send]
-other = "發送"
-
-[read_more]
-other = "繼續閱讀"

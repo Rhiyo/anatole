@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     {{- hugo.Generator -}}
     <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-    <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+    <meta name="description" content="{{ .Site.Params.description }}">
     {{- if .Site.Params.googleSiteVerify }}
     <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerify }}">
     {{- end -}}
@@ -17,21 +17,15 @@
           integrity="{{ $style.Data.Integrity }}"
           crossorigin="anonymous"
           type="text/css">
-    {{ $markupHighlightStyle := resources.Get "css/markupHighlight.css" | resources.Minify | resources.Fingerprint }}
+    {{- $css := "" -}}
+    {{- range .Site.Params.customCss -}}
+    {{ $css := resources.Get . | fingerprint }}
     <link rel="stylesheet"
-        href="{{ $markupHighlightStyle.Permalink }}"
-        integrity="{{ $markupHighlightStyle.Data.Integrity }}"
-        crossorigin="anonymous"
-        type="text/css">
-    {{ range .Site.Params.customCss }}
-        {{ $minstyles := resources.Get . }}
-        {{ $styles := $minstyles | resources.Minify | resources.Fingerprint }}
-        <link rel="stylesheet"
-        href="{{ $styles.Permalink }}"
-        integrity="{{ $styles.Data.Integrity }}"
-        crossorigin="anonymous"
-        media="screen" />
-    {{ end }}
+          href="{{ $css.Permalink }}"
+          integrity="{{ $css.Data.Integrity }}"
+          crossorigin="anonymous"
+          type="text/css">
+    {{- end -}}
     <link rel="stylesheet" 
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" 
     integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" 
@@ -51,22 +45,12 @@
     {{ end -}}
 
     <!-- JavaScript -->
-    {{ $anatoleHeader := resources.Get "js/anatole-header.js" }}
-    {{ $secureHeaderJS := $anatoleHeader |  resources.Minify | resources.Fingerprint }}
+    {{ $anatole := resources.Get "js/anatole-header.js" }}
+    {{ $secureJS := $anatole |  resources.Minify | resources.Fingerprint }}
     <script type="text/javascript"
-            src="{{ $secureHeaderJS.Permalink }}"
-            integrity="{{ $secureHeaderJS.Data.Integrity }}"
+            src="{{ $secureJS.Permalink }}"
+            integrity="{{ $secureJS.Data.Integrity }}"
             crossorigin="anonymous"></script>
-
-
-    {{ if not .Site.Params.disableThemeSwitcher }}
-        {{ $anatoleThemeSwitcher := resources.Get "js/anatole-theme-switcher.js" }}
-        {{ $secureThemeSwitcherJS := $anatoleThemeSwitcher |  resources.Minify | resources.Fingerprint }}
-        <script type="text/javascript"
-                src="{{ $secureThemeSwitcherJS.Permalink }}"
-                integrity="{{ $secureThemeSwitcherJS.Data.Integrity }}"
-                crossorigin="anonymous"></script>
-    {{ end }}
 
     {{- $js := "" -}}
     {{- range .Site.Params.customJs -}}
@@ -94,12 +78,4 @@
 
     <!-- Twitter Cards -->
     {{ template "_internal/twitter_cards.html" . }}
-
-    <!-- Open Graph -->
-    {{- if isset .Site.Taxonomies "series" }}
-    {{- if not (eq (len .Site.Taxonomies.series) 0) -}}
-    {{ template "_internal/opengraph.html" . }}
-    {{- end -}}
-    {{- end }}
-
 </head>

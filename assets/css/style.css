@@ -216,7 +216,7 @@ a:active {
 
 .page-top .nav a.current {
     color: var(--nav-text-color);
-    padding-bottom: 24px;
+    padding-bottom: 26px;
     border-bottom: 2px solid var(--nav-text-color);
 }
 

@@ -1,4 +1,4 @@
-    {{ range $paginator.Pages }}
+    {{ range .paginator.Pages }}
         <div class="post {{ with .Site.Params.doNotLoadAnimations }} . {{ else }} animated fadeInDown {{ end }}">
             <div class="post-title">
                 <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>

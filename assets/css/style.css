@@ -322,6 +322,7 @@ a:active {
 .post {
     background-color: var(--bg-color);
     margin: 30px;
+    overflow: hidden;
 }
 
 .post .post-title h1 {

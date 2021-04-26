@@ -428,7 +428,7 @@ a:active {
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    margin-bottom: 0em;
+    margin-bottom: 0.5em;
     color: var(--body-color);
 }
 
@@ -442,7 +442,7 @@ a:active {
 }
 
 .info {
-    margin-top: 0em;
+    margin-top: 0.5em;
 }
 
 .post .post-footer .meta a {

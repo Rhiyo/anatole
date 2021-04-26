@@ -373,9 +373,16 @@ a:active {
     color: #2F69B3;
 }
 
+.post .post-content h2 {
+    margin-top: 32px;
+    margin-bottom: 8px;
+}
+
 .post .post-content h3 {
     font-size: 22px;
     font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 8px;
 }
 
 .post .post-content h4 {

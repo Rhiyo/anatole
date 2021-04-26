@@ -428,7 +428,7 @@ a:active {
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
     color: var(--body-color);
 }
 

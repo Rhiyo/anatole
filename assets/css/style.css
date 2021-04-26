@@ -216,8 +216,8 @@ a:active {
 
 .page-top .nav a.current {
     color: var(--nav-text-color);
-    padding-bottom: 22px;
-    border-bottom: 3px solid var(--nav-text-color);
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--nav-text-color);
 }
 
 .theme-switch-item {

@@ -322,6 +322,7 @@ a:active {
 .post {
     background-color: var(--bg-color);
     margin: 30px;
+    margin-bottom: 40px;
     overflow: hidden;
 }
 
@@ -416,7 +417,7 @@ a:active {
     justify-content: space-between;
     align-items: center;
     font-size: 12px;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     color: var(--body-color);
 }
 

@@ -1,48 +1,5 @@
-    {{ range .Paginator.Pages }}
-        <div class="post {{ with .Site.Params.doNotLoadAnimations }} . {{ else }} animated fadeInDown {{ end }}">
-            <div class="post-title">
-                <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a>
-                </h3>
-            </div>
-            <div class="meta">
-                <div class="info">
-                    <div class="tags">
-                    {{ with .Params.tags }}
-                        {{- range $index, $el := . -}}
-                            <a class="tag"
-                                href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
-                        {{- end -}}
-                    {{ end }}
-                    </div>
-                    <div class="date-container">
-                    <em class="fas fa-calendar-day"></em><span
-                            class="date">{{ .Date.Format "Mon, Jan 2, 2006" }}</span>
-                    </div>
-                </div>
-            </div>
-            {{ $img_name := split .File.LogicalName "." }}
-                {{ $img_name := index $img_name 0 }}
-                {{ $img_loc := print "/image/post/preview/" $img_name ".png" }}
-                {{ if $img_loc | fileExists }}
-                <a href="{{ .RelPermalink }}">
-                <img src="{{ $img_loc }}" width="160" height="120" style="float: left; margin-right: 10px; margin-top: 15px; border-radius: 10%;" />
-                </a>
-            {{ end }}
-            <div class="post-content">
-                <div class="p_part"><p>{{ $summary_splits := split .Summary "thisisthestartofsummary" }}
-{{ if eq (len $summary_splits) 2 }}
-    <!-- If that endtoc special comment is present, output only the part after that comment as Summary. -->
-    {{ index $summary_splits 1 | safeHTML }}
-{{ else }}
-    <!-- Print the whole Summary if endtoc special comment is not found. -->
-    {{ .Summary }}
-{{ end }}</p></div>
-            </div>
-            <div class="post-footer-sum">
-                <a href="{{ .RelPermalink }}">... Read More</a>
-            </div>
-        </div>
-    {{ end }}
-    <div class="pagination">
-        {{ template "_internal/pagination.html" . }}
-    </div>
+<span class="separator">
+{{- range $index, $el := . -}}
+    <a class="tag" href="{{ ( printf "tags/%s/" ( . | urlize ) ) | relLangURL }}">{{ . }}</a>
+{{- end -}}
+</span>

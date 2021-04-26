@@ -193,7 +193,7 @@ a:active {
     list-style: none;
     padding: 11px 30px;
     float: left;
-    font-size: 12px;
+    font-size: 16px;
     display: block;
     width: calc(100% - 30px);
     border-bottom: 1px solid var(--border-color);
@@ -378,6 +378,10 @@ a:active {
     margin-bottom: 8px;
 }
 
+.post .post-content h1 {
+    margin-top: 40px;
+}
+
 .post .post-content h3 {
     font-size: 18px;
     font-weight: 600;
@@ -395,7 +399,7 @@ a:active {
 .post .post-content li {
     line-height: 1.9em;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .post .post-content .p_part p {

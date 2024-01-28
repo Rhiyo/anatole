@@ -62,7 +62,7 @@
 
       @include desktop {
         @include themed() {
-          border-bottom: 1px solid t('primary');
+          border-bottom: 2px solid t('primary');
         }
       }
     }

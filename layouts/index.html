@@ -42,14 +42,19 @@
       {{ end }}"
     >
       <div class="post__content">
-              {{ $img_name := split .File.LogicalName "." }}
-      {{ $img_name := index $img_name 0 }}
-      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
-      {{ if $img_loc | fileExists }}
-      <a href="{{ .RelPermalink }}">
-      <img src="{{ $img_loc }}" width="160" height="120" style="float: left; margin-right: 10px; margin-top: 15px; border-radius: 10%;" />
-      </a>
-      {{ end }}
+        {{ $img_name := split .File.LogicalName "." }}
+        {{ $img_name := index $img_name 0 }}
+        {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
+        {{ if $img_loc | fileExists }}
+          <a href="{{ .RelPermalink }}">
+            <img
+              src="{{ $img_loc }}"
+              width="160"
+              height="120"
+              style="float: left; margin-right: 10px; margin-top: 15px; border-radius: 10%;"
+            />
+          </a>
+        {{ end }}
         <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         {{ if .Site.Params.fullPostContent }}
           <p>{{ .Content | markdownify }}</p>

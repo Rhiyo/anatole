@@ -23,6 +23,10 @@
     // }
 
     @include desktop {
+      width: calc(#{$content-ratio} * 80%);
+    }
+
+    @include widescreen {
       width: calc(#{$content-ratio} * 60%);
     }
 
@@ -54,6 +58,10 @@
     // }
 
     @include desktop {
+      width: calc(#{$sidebar-ratio} * 80%);
+    }
+
+    @include widescreen {
       width: calc(#{$sidebar-ratio} * 60%);
     }
 

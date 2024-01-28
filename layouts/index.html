@@ -42,6 +42,7 @@
       {{ end }}"
     >
       <div class="post__content">
+        <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         {{ $img_name := split .File.LogicalName "." }}
         {{ $img_name := index $img_name 0 }}
         {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
@@ -55,7 +56,6 @@
             />
           </a>
         {{ end }}
-        <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         {{ if .Site.Params.fullPostContent }}
           <p>{{ .Content | markdownify }}</p>
         {{ else }}

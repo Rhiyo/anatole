@@ -44,58 +44,58 @@
       <div class="post__content">
         <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         <div class="post__footer">
-        <em class="fas fa-calendar-day"></em>
-        <span class="post__footer-date"
-          >{{ if isset .Site.Params "indexdateformat" }}
-            {{ if .Site.Params.localizedDates }}
-              {{ time.Format .Site.Params.indexDateFormat .Date }}
+          <em class="fas fa-calendar-day"></em>
+          <span class="post__footer-date"
+            >{{ if isset .Site.Params "indexdateformat" }}
+              {{ if .Site.Params.localizedDates }}
+                {{ time.Format .Site.Params.indexDateFormat .Date }}
+              {{ else }}
+                {{ .Date.Format .Site.Params.indexDateFormat }}
+              {{ end }}
+
             {{ else }}
-              {{ .Date.Format .Site.Params.indexDateFormat }}
-            {{ end }}
+              {{ if .Site.Params.localizedDates }}
+                {{ time.Format "Mon, Jan 2, 2006" .Date }}
+              {{ else }}
+                {{ .Date.Format "Mon, Jan 2, 2006" }}
+              {{ end }}
 
-          {{ else }}
-            {{ if .Site.Params.localizedDates }}
-              {{ time.Format "Mon, Jan 2, 2006" .Date }}
-            {{ else }}
-              {{ .Date.Format "Mon, Jan 2, 2006" }}
-            {{ end }}
+            {{ end }}</span
+          >
+          {{ with .Page.Params.Categories }}
+            {{ partial "taxonomy/categories.html" . }}
+          {{ end }}
 
-          {{ end }}</span
-        >
-        {{ with .Page.Params.Categories }}
-          {{ partial "taxonomy/categories.html" . }}
-        {{ end }}
-
-        {{ with .Page.Params.Tags }}
-          {{ partial "taxonomy/tags.html" . }}
-        {{ end }}
+          {{ with .Page.Params.Tags }}
+            {{ partial "taxonomy/tags.html" . }}
+          {{ end }}
+        </div>
       </div>
+      {{ $img_name := split .File.LogicalName "." }}
+      {{ $img_name := index $img_name 0 }}
+      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
+      {{ if $img_loc | fileExists }}
+        <a href="{{ .RelPermalink }}">
+          <img
+            src="{{ $img_loc }}"
+            width="160"
+            height="120"
+            style="float: left; margin-right: 10px; margin-top: 15px; border-radius: 10%;"
+          />
+        </a>
+      {{ end }}
+      {{ if .Site.Params.fullPostContent }}
+        <p>{{ .Content | markdownify }}</p>
+      {{ else }}
+        <p>{{ .Summary | markdownify }}</p>
+      {{ end }}
+      <!-- add read more -->
+      {{- if and (.Truncated) (.Site.Params.readMore) -}}
+        <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
+      {{- end -}}
     </div>
-        {{ $img_name := split .File.LogicalName "." }}
-        {{ $img_name := index $img_name 0 }}
-        {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
-        {{ if $img_loc | fileExists }}
-          <a href="{{ .RelPermalink }}">
-            <img
-              src="{{ $img_loc }}"
-              width="160"
-              height="120"
-              style="float: left; margin-right: 10px; margin-top: 15px; border-radius: 10%;"
-            />
-          </a>
-        {{ end }}
-        {{ if .Site.Params.fullPostContent }}
-          <p>{{ .Content | markdownify }}</p>
-        {{ else }}
-          <p>{{ .Summary | markdownify }}</p>
-        {{ end }}
-        <!-- add read more -->
-        {{- if and (.Truncated) (.Site.Params.readMore) -}}
-          <a href="{{ .RelPermalink }}">{{ i18n "read_more" }}</a>
-        {{- end -}}
-      </div>
 
-      <!--  -->
+    <!--  -->
   {{ end }}
   <div class="pagination">
     {{ template "partials/pagination.html" . }}

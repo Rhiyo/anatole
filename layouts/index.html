@@ -43,7 +43,7 @@
     >
       {{ $img_name := split .File.LogicalName "." }}
       {{ $img_name := index $img_name 0 }}
-      {{ $img_loc := print "/image/posts/preview/" $img_name ".png" }}
+      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
       {{ if $img_loc | fileExists }}
         <div class="post__thumbnail-wrapper">
           <a href="{{ .RelPermalink }}">

@@ -65,6 +65,10 @@
       }
     }
 
+    @include themed() {
+      border-bottom: t('border');
+    }
+
     .chroma {
       @include themed() {
         background-color: t('primary-lighter');
@@ -215,9 +219,9 @@
   &__footer {
     padding: 12px 0;
 
-    @include themed() {
-      border-bottom: t('border');
-    }
+    // @include themed() {
+    //   border-bottom: t('border');
+    // }
 
     &-date {
       font-size: 1.4rem;

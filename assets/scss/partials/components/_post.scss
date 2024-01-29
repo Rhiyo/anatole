@@ -2,6 +2,10 @@
   margin: 30px;
 
   @include themed() {
+    border-bottom: t('border');
+  }
+
+  @include themed() {
     background-color: t('accent');
   }
 
@@ -63,10 +67,6 @@
       @include themed() {
         color: t('info');
       }
-    }
-
-    @include themed() {
-      border-bottom: t('border');
     }
 
     .chroma {

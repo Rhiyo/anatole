@@ -1,4 +1,5 @@
 {{ define "main" }}
+  {{ if (isset .Content) }}
   <div
     class="post {{ with .Site.Params.doNotLoadAnimations }}
       .
@@ -6,9 +7,11 @@
       animated fadeInDown
     {{ end }}"
   >
+    
     <div class="post__content">
       {{ .Content }}
     </div>
+    
 
     <!-- (Optional) Home
           -- on top of `mainSections` content (aka posts) ;
@@ -17,7 +20,7 @@
           One can set `mainSections = [""]` and have the content/_index.md specified here
       -->
   </div>
-
+  {{ end }}
   {{ if .Params.mainSectionsTitle }}
     <div
       class="post {{ with .Site.Params.doNotLoadAnimations }}

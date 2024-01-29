@@ -9,13 +9,7 @@
   //  color: t('primary-light');
   // }
 
-  a:link a:visited {
-    color: #424242;
-  }
 
-  a:hover {
-    color: #6086b4;
-  }
 
   @include ltr {
     margin: 5px 8px 5px 0;
@@ -28,4 +22,14 @@
   // &::before {
   //   content: '#';
   // }
+}
+
+.post .post__content .post__footer {
+  a:link a:visited {
+    color: #424242;
+  }
+
+  a:hover {
+    color: #6086b4;
+  }
 }

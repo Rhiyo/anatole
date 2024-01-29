@@ -226,15 +226,19 @@
     margin: 0px;
   }
 
+  &__content &__footer {
+    a {
+      color: #464646;
+    }
+  }
+  
   &__footer {
     padding: 6px 0;
 
     // @include themed() {
     //   border-bottom: t('border');
     // }
-    a {
-      color: #464646;
-    }
+
 
     &-date {
       font-size: 1.4rem;

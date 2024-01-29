@@ -5,10 +5,18 @@
   border-radius: 2px;
   padding: 5px 20px;
 
-  @include themed() {
-    color: t('primary-light');
+  // @include themed() {
+  //  color: t('primary-light');
+  // }
+
+  a:link a:visited {
+    color: #424242;
   }
 
+  a:hover {
+    color: #6086b4;
+  }
+  
   @include ltr {
     margin: 5px 8px 5px 0;
   }

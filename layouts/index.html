@@ -47,6 +47,13 @@
           <h3><a href="{{ .RelPermalink }}">{{ upper .Title }}</a></h3>
         </div>
         <div class="post__footer">
+          {{ with .Page.Params.Categories }}
+            {{ partial "taxonomy/categories.html" . }}
+          {{ end }}
+
+          {{ with .Page.Params.Tags }}
+            {{ partial "taxonomy/tags.html" . }}
+          {{ end }}
           <em class="fas fa-calendar-day"></em>
           <span class="post__footer-date"
             >{{ if isset .Site.Params "indexdateformat" }}
@@ -65,13 +72,6 @@
 
             {{ end }}</span
           >
-          {{ with .Page.Params.Categories }}
-            {{ partial "taxonomy/categories.html" . }}
-          {{ end }}
-
-          {{ with .Page.Params.Tags }}
-            {{ partial "taxonomy/tags.html" . }}
-          {{ end }}
         </div>
       </div>
       {{ $img_name := split .File.LogicalName "." }}

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ if (isset .Content) }}
+  {{ if .Content }}
     <div
       class="post {{ with .Site.Params.doNotLoadAnimations }}
         .

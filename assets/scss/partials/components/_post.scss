@@ -9,6 +9,12 @@
     background-color: t('accent');
   }
 
+  &__front-title {
+    h3 {
+      margin: 0px;
+    }
+  }
+  
   &__meta {
     display: flex;
     list-style: none;

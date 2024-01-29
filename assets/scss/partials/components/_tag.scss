@@ -24,12 +24,11 @@
   // }
 }
 
-.post .post__content .post__footer {
-  a:link a:visited {
-    color: #424242;
-  }
+a.tag:link a.tag:visited {
+  color: #464646;
+}
 
-  a:hover {
+
+a.tag:hover {
     color: #6086b4;
-  }
 }

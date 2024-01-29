@@ -232,7 +232,10 @@
     // @include themed() {
     //   border-bottom: t('border');
     // }
-
+    a {
+      color: #464646;
+    }
+    
     &-date {
       font-size: 1.4rem;
 

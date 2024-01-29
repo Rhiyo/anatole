@@ -9,8 +9,6 @@
   //  color: t('primary-light');
   // }
 
-
-
   @include ltr {
     margin: 5px 8px 5px 0;
   }
@@ -28,7 +26,6 @@ a.tag:link a.tag:visited {
   color: #464646;
 }
 
-
 a.tag:hover {
-    color: #6086b4;
+  color: #6086b4;
 }

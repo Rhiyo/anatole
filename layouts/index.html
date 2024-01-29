@@ -1,25 +1,23 @@
 {{ define "main" }}
   {{ if (isset .Content) }}
-  <div
-    class="post {{ with .Site.Params.doNotLoadAnimations }}
-      .
-    {{ else }}
-      animated fadeInDown
-    {{ end }}"
-  >
-    
-    <div class="post__content">
-      {{ .Content }}
-    </div>
-    
+    <div
+      class="post {{ with .Site.Params.doNotLoadAnimations }}
+        .
+      {{ else }}
+        animated fadeInDown
+      {{ end }}"
+    >
+      <div class="post__content">
+        {{ .Content }}
+      </div>
 
-    <!-- (Optional) Home
+      <!-- (Optional) Home
           -- on top of `mainSections` content (aka posts) ;
           -- as declared in content/_index.md
 
           One can set `mainSections = [""]` and have the content/_index.md specified here
       -->
-  </div>
+    </div>
   {{ end }}
   {{ if .Params.mainSectionsTitle }}
     <div

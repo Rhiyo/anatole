@@ -54,7 +54,7 @@
           {{ with .Page.Params.Tags }}
             {{ partial "taxonomy/tags.html" . }}
           {{ end }}
-          <span>
+          <span class="post__date-container">
             <em class="fas fa-calendar-day"></em>
             <span class="post__footer-date"
               >{{ if isset .Site.Params "indexdateformat" }}

@@ -12,7 +12,13 @@
       </div>
     {{ end }}
     <div class="post__content">
-      <h1>{{ title .Title }}</h1>
+      {{ $img_name := split .File.LogicalName "." }}
+      {{ $img_name := index $img_name 0 }}
+      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
+      {{ if $img_loc | fileExists }}
+      <img src="{{ $img_loc }}" width="320" height="240" style="float: right; padding: 15px;" class="medium-zoom-image">
+      {{ end }}
+      <h3>{{ title .Title }}</h3>
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
         <ul class="post__meta">
           <li class="post__meta-item">

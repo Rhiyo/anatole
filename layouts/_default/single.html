@@ -56,7 +56,15 @@
         {{- partial "toc.html" . -}}
       {{- end -}}
 
-      {{ .Content }}
+            {{ $summary_splits := split .Content "thisisthestartofsummary" }}
+            {{ if eq (len $summary_splits) 2 }}
+            <!-- If that endtoc special comment is present, output only the part after that comment as Summary. -->
+            {{ index $summary_splits 0 | safeHTML }}
+            {{ index $summary_splits 1 | safeHTML}}
+            {{ else }}
+            <!-- Print the whole Summary if endtoc special comment is not found. -->
+            {{ .Content }}
+            {{ end }}
 
       {{- if isset .Params "series" -}}
         {{- partial "series.html" . -}}

@@ -24,7 +24,9 @@
           class="medium-zoom-image"
         />
       {{ end }}
+      <div class="post__front-title">
       <h3>{{ title .Title }}</h3>
+      </div>
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
         <ul class="post__meta">
           <li class="post__meta-item">

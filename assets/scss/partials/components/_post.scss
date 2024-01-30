@@ -41,10 +41,10 @@
   }
 
   &__meta {
-    @include desktop {
-      display: flex;
-      list-style: none;
-    }
+    
+    display: flex;
+    list-style: none;
+
     padding: 0;
     margin: 5px 0px 5px 0px;
 
@@ -265,8 +265,10 @@
 
   &__footer {
     padding: 6px 0;
-    display: flex;
-    justify-content: space-between;
+    @include desktop {
+      display: flex;
+      justify-content: space-between;
+    }
     align-items: center;
     // @include themed() {
     //   border-bottom: t('border');

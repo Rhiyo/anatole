@@ -27,7 +27,8 @@
     display: flex;
     list-style: none;
     padding: 0;
-
+    margin: 10px, 0px, 10px 0px;
+    
     &-item {
       &:not(:last-child) {
         margin-right: 1.25rem;

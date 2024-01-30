@@ -9,6 +9,12 @@
     background-color: t('accent');
   }
 
+  &__read-more {
+    padding: 0;
+    text-align: right;
+  }
+
+  
   &__front-title {
     h3 {
       margin: 0px;

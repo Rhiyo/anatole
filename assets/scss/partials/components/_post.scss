@@ -41,8 +41,10 @@
   }
 
   &__meta {
-    display: flex;
-    list-style: none;
+    @include desktop {
+      display: flex;
+      list-style: none;
+    }
     padding: 0;
     margin: 5px 0px 5px 0px;
 
@@ -275,12 +277,16 @@
 
       @include ltr {
         // margin-right: 10px;
-        margin-left: 5px;
+        @include desktop {
+          margin-left: 5px;
+        }
       }
 
       @include rtl {
-        margin-left: 10px;
-        margin-right: 5px;
+        // margin-left: 10px;
+        @include desktop {
+          margin-right: 5px;
+        }
       }
     }
   }

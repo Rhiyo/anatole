@@ -81,10 +81,7 @@
       {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
       {{ if $img_loc | fileExists }}
         <a href="{{ .RelPermalink }}">
-          <img
-            src="{{ $img_loc }}"
-            class="post__front-thumbnail"
-          />
+          <img src="{{ $img_loc }}" class="post__front-thumbnail" />
         </a>
       {{ end }}
       {{ if .Site.Params.fullPostContent }}

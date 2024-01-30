@@ -16,10 +16,7 @@
       {{ $img_name := index $img_name 0 }}
       {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
       {{ if $img_loc | fileExists }}
-        <img
-          src="{{ $img_loc }}"
-          class="medium-zoom-image post__single-thumbnail"
-        />
+        <img src="{{ $img_loc }}" class="medium-zoom-image post__single-thumbnail" />
       {{ end }}
       <div class="post__front-title">
         <h3>{{ title .Title }}</h3>

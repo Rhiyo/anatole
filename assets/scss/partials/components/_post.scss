@@ -12,6 +12,9 @@
   &__front-title {
     h3 {
       margin: 0px;
+      a:hover {
+        text-decoration: underline;
+      }
     }
   }
 

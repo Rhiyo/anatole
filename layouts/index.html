@@ -54,6 +54,7 @@
           {{ with .Page.Params.Tags }}
             {{ partial "taxonomy/tags.html" . }}
           {{ end }}
+          <span>
           <em class="fas fa-calendar-day"></em>
           <span class="post__footer-date"
             >{{ if isset .Site.Params "indexdateformat" }}
@@ -71,7 +72,7 @@
               {{ end }}
 
             {{ end }}</span
-          >
+          ></span>
         </div>
       </div>
       {{ $img_name := split .File.LogicalName "." }}

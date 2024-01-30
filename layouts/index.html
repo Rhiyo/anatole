@@ -90,7 +90,7 @@
         <p class="post__front-content">{{ .Summary | markdownify }}</p>
       {{ end }}
       <!-- add read more -->
-      {{- if and (.Truncated) (.Site.Params.readMore) -}}
+      {{- if .Site.Params.readMore -}}
         <div class="post__read-more">
           <a href="{{ .RelPermalink }}">... {{ i18n "read_more" }}</a>
         </div>

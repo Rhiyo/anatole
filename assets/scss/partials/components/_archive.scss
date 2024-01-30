@@ -13,6 +13,7 @@
 
   &__list {
     padding: 0;
+    margin: 0;
 
     &-item {
       display: flex;
@@ -32,7 +33,7 @@
     &-title {
       display: inline-block;
       flex: 0.96;
-      text-transform: uppercase;
+      // text-transform: uppercase;
 
       @include themed() {
         color: t('primary');

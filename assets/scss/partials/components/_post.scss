@@ -245,7 +245,7 @@
 
   &__footer {
     padding: 6px 0;
-
+    justify-content: space-between;
     // @include themed() {
     //   border-bottom: t('border');
     // }

@@ -87,14 +87,16 @@
       {{ if .Site.Params.fullPostContent }}
         <p>{{ .Content | markdownify }}</p>
       {{ else }}
-        <p class="post__front-content">{{ $summary_splits := split .Summary "thisisthestartofsummary" }}
-{{ if eq (len $summary_splits) 2 }}
-    <!-- If that endtoc special comment is present, output only the part after that comment as Summary. -->
-    {{ index $summary_splits 1 | safeHTML }}
-{{ else }}
-    <!-- Print the whole Summary if endtoc special comment is not found. -->
-    {{ .Summary }}
-{{ end }}</p>
+        <p class="post__front-content">
+          {{ $summary_splits := split .Summary "thisisthestartofsummary" }}
+          {{ if eq (len $summary_splits) 2 }}
+            <!-- If that endtoc special comment is present, output only the part after that comment as Summary. -->
+            {{ index $summary_splits 1 | safeHTML }}
+          {{ else }}
+            <!-- Print the whole Summary if endtoc special comment is not found. -->
+            {{ .Summary }}
+          {{ end }}
+        </p>
       {{ end }}
       <!-- add read more -->
       {{- if .Site.Params.readMore -}}

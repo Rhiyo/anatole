@@ -9,6 +9,15 @@
     background-color: t('accent');
   }
 
+  
+  &__date-container {
+    display: block;
+
+    @include desktop {
+      display: inline;
+    }
+  }
+
   &__front-thumbnail {
     float: left;
     margin-right: 10px;

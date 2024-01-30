@@ -18,10 +18,7 @@
       {{ if $img_loc | fileExists }}
         <img
           src="{{ $img_loc }}"
-          width="320"
-          height="240"
-          style="float: right; padding: 15px;"
-          class="medium-zoom-image"
+          class="medium-zoom-image post__single-thumbnail"
         />
       {{ end }}
       <div class="post__front-title">

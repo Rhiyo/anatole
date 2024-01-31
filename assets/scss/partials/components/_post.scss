@@ -29,11 +29,12 @@
   }
 
   &__single-thumbnail {
-    padding: 15px;
+    padding: 0px, 0px 15px 0px;
     display: block;
     width: 320px;
     height: 240px;
     @include desktop {
+      padding: 15px;
       display: inline;
       float: right;
     }

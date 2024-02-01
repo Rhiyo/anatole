@@ -12,9 +12,7 @@
       </div>
     {{ end }}
     <div class="post__content">
-      {{ $img_name := split .File.LogicalName "." }}
-      {{ $img_name := index $img_name 0 }}
-      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
+      {{ $img_loc := print "/images/preview/" .RelPermalink ".png" }}
       {{ if $img_loc | fileExists }}
         <img src="{{ $img_loc }}" class="medium-zoom-image post__single-thumbnail" />
       {{ end }}

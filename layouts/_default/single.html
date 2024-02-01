@@ -14,7 +14,7 @@
     <div class="post__content">
       {{ $img_loc := print "/images/preview/" .RelPermalink ".png" }}
       {# if $img_loc | fileExists #}
-        <img src="{{ $img_loc }}" class="medium-zoom-image post__single-thumbnail" />
+      <img src="{{ $img_loc }}" class="medium-zoom-image post__single-thumbnail" />
       {# end #}
       <div class="post__front-title">
         <h3>{{ title .Title }}</h3>

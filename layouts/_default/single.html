@@ -12,7 +12,7 @@
       </div>
     {{ end }}
     <div class="post__content">
-      {{ $img_loc := printf "/images/preview"/%s.png" (trim .RelPermalink "/") }}
+      {{ $img_loc := printf "/images/preview/%s.png" (trim .RelPermalink "/") }}
       {{ if $img_loc | fileExists }}
         <img src="{{ $img_loc }}" class="medium-zoom-image post__single-thumbnail" />
       {{ end }}

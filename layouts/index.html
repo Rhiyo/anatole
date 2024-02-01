@@ -78,7 +78,7 @@
       </div>
       {{ $img_name := split .File.LogicalName "." }}
       {{ $img_name := index $img_name 0 }}
-      {{ $img_loc := print "/images/posts/preview/" $img_name ".png" }}
+      {{ $img_loc := print "/images/preview/post/" $img_name ".png" }}
       {{ if $img_loc | fileExists }}
         <a href="{{ .RelPermalink }}">
           <img src="{{ $img_loc }}" class="post__front-thumbnail" />

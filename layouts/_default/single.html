@@ -82,8 +82,8 @@
     </div>
     <div class="post__footer">
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
-        <div>Share on</div>
-        {{ partial "share-buttons.html" . }}
+        <div class="post__share-text">Share on</div>
+        <div class="post__share-icons">{{ partial "share-buttons.html" . }}</div>
       {{ end }}
 
       {{ with .Page.Params.Categories }}

@@ -81,6 +81,11 @@
       {{- end -}}
     </div>
     <div class="post__footer">
+      {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
+        <div>Share on</div>
+        {{ partial "share-buttons.html" . }}
+      {{ end }}
+
       {{ with .Page.Params.Categories }}
         {{ partial "taxonomy/categories.html" . }}
       {{ end }}

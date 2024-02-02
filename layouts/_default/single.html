@@ -83,6 +83,7 @@
   </div>
   <div class="post__footer"></div>
     <div class="post__footer-single">
+      <div class="post__footer-single-tags">
       {{ with .Page.Params.Categories }}
         {{ partial "taxonomy/categories.html" . }}
       {{ end }}
@@ -90,6 +91,7 @@
       {{ with .Page.Params.Tags }}
         {{ partial "taxonomy/tags.html" . }}
       {{ end }}
+    </div>
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
         <span class="post__share-text">Share on</span>
         <span class="post__share-icons">{{ partial "share-buttons.html" . }}</span>
@@ -110,7 +112,7 @@
       </div>
     {{- end -}}
     {{- if .Site.Params.giscus.repo -}}
-      <div id="comment" class="comment">
+      <div id="comment" class="comment-single">
         <h2>{{ i18n "comments" }}</h2>
         {{ partial "comments/giscus.html" . }}
       </div>

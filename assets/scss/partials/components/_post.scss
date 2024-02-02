@@ -321,5 +321,10 @@
       grid-auto-flow: row;
       margin: 30px;
     }
+    &-single-tags {
+      a {
+        color: #464646;
+      }
+    }
   }
 }

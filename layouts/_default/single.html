@@ -89,8 +89,8 @@
         {{ partial "taxonomy/tags.html" . }}
       {{ end }}
       {{ if or (eq .Type "post") (eq .Type .Site.Params.postSectionName) }}
-        <span class="post__share-text">Share on</div>
-        <span class="post__share-icons">{{ partial "share-buttons.html" . }}</div>
+        <span class="post__share-text">Share on</span>
+        <span class="post__share-icons">{{ partial "share-buttons.html" . }}</span>
       {{ end }}
     </div>
 

@@ -12,9 +12,11 @@
   &__single-footer {
     display: grid;
     grid-auto-flow: row;
+    margin-top: 30px;
   }
   
   &__share-text {
+    margin-top: 15px;
     display: block;
   }
 
